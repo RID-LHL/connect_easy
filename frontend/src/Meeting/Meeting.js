@@ -52,7 +52,7 @@ const Meeting = ({ meetingId, socket }) => {
 
     myStream.current = await navigator.mediaDevices.getUserMedia({
       // set user media constraints
-      video: false,
+      video: true,
       audio: true,
     });
 
