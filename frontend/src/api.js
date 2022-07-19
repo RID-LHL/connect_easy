@@ -3,8 +3,8 @@ import { logout } from './shared/utils/auth';
 
 const apiClient = axios.create({
   // baseURL: "http://localhost:5002/api",
-  // baseURL: 'https://connect-easy-rid.herokuapp.com/api',
-  baseURL: 'http://connect-easy-rid.herokuapp.com/api',
+  baseURL: 'https://connect-easy-rid.herokuapp.com/api',
+  // baseURL: 'http://connect-easy-rid.herokuapp.com/api',
   timeout: 1000,
 });
 
