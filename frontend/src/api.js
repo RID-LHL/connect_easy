@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { logout } from './shared/utils/auth';
-import { showAlertMessage } from './store/reducers/alertReducer';
 
 const apiClient = axios.create({
   // baseURL: "http://localhost:5002/api",
-  baseURL: 'https://connect-easy-rid.herokuapp.com/api',
+  // baseURL: 'https://connect-easy-rid.herokuapp.com/api',
+  baseURL: 'http://connect-easy-rid.herokuapp.com/api',
   timeout: 1000,
 });
 
@@ -319,7 +319,6 @@ export const submitImage = async (imageFile) => {
 };
 
 export const postStartMeeting = async (appointmentData) => {
-  console.log('MONKEY FUZZ::::::', appointmentData);
   try {
     return await apiClient.post(
       `/appointment/postStartMeeting`,
