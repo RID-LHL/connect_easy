@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import {
   FormControl,
   MenuItem,
@@ -9,7 +8,6 @@ import {
   Button,
   Box,
   Container,
-  Switch,
 } from '@mui/material';
 
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
@@ -43,7 +41,6 @@ const ProfilePage = () => {
   const [originalImage, setOriginalImage] = useState('');
   const [imageFile, setImageFile] = useState('');
   const [previewImage, setPreviewImage] = useState('');
-  const [availability, setAvailability] = useState(false);
 
   const loadProfilesToState = (userProfile) => {
     setFirstName(userProfile.firstName);
@@ -97,7 +94,7 @@ const ProfilePage = () => {
     if (userProfile) {
       loadProfilesToState(userProfile);
     }
-  }, [userProfile]);
+  }, [userProfile, dispatch]);
 
   return (
     <>
@@ -246,20 +243,6 @@ const ProfilePage = () => {
               value={price}
               setValue={setPrice}
             />
-            {/* <FormControl>
-              <InputLabel id="Availability">Availability</InputLabel>
-              <Switch
-                label="Availability"
-                defaultValue="category"
-                onChange={(e) => {
-                  setSelectedCategory(e.target.value);
-                }}
-              >
-                <MenuItem value="1">Available</MenuItem>
-                <MenuItem value="2">Off</MenuItem>
-              </Switch>
-              <FormHelperText>Required</FormHelperText>
-            </FormControl> */}
           </Box>
 
           <FormControl>
