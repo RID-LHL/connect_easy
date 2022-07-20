@@ -59,6 +59,11 @@ Rafael Nóbrega - https://github.com/rafnobrega <br/>
 <br/>
 
 ## 🧰 &nbsp; How to Install:
+### Git Clone:
+```
+git clone git@github.com:RID-LHL/connect_easy.git connect_easy
+```
+
 
 ### Frontend:
 ```
