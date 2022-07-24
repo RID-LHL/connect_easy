@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   FormControl,
   MenuItem,
@@ -8,40 +8,39 @@ import {
   Button,
   Box,
   Container,
-} from "@mui/material";
+} from '@mui/material';
 
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 
-import { Avatar } from "@mui/material";
-import TextFieldWithLabel from "../components/TextFieldWithLabel";
+import { Avatar } from '@mui/material';
+import TextFieldWithLabel from '../components/TextFieldWithLabel';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserProfile,
   updateUserProfile,
-} from "../../store/reducers/userProfileReducer";
-import { category } from "../../store/reducers/categoryReducer";
+} from '../../store/reducers/userProfileReducer';
+import { category } from '../../store/reducers/categoryReducer';
 
 const ProfilePage = () => {
   const userProfile = useSelector((state) => state.userProfile);
   const { categoryList } = useSelector((state) => state.category);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [description, setDescription] = useState("");
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [price, setPrice] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [originalImage, setOriginalImage] = useState("");
-  const [imageFile, setImageFile] = useState("");
-  const [previewImage, setPreviewImage] = useState("");
-  const [availability, setAvailability] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [street, setStreet] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [country, setCountry] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [price, setPrice] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [originalImage, setOriginalImage] = useState('');
+  const [imageFile, setImageFile] = useState('');
+  const [previewImage, setPreviewImage] = useState('');
 
   const loadProfilesToState = (userProfile) => {
     setFirstName(userProfile.firstName);
@@ -95,48 +94,48 @@ const ProfilePage = () => {
     if (userProfile) {
       loadProfilesToState(userProfile);
     }
-  }, [userProfile]);
+  }, [userProfile, dispatch]);
 
   return (
     <>
       <Container>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            gap: "2rem",
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            gap: '2rem',
           }}
         >
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
             }}
           >
             {originalImage && !previewImage && (
               <Avatar
-                sx={{ width: "100px", height: "100px" }}
+                sx={{ width: '100px', height: '100px' }}
                 src={
-                  "https://connect-easy-images.s3.us-west-2.amazonaws.com/" +
+                  'https://connect-easy-images.s3.us-west-2.amazonaws.com/' +
                   originalImage
                 }
               ></Avatar>
             )}
             {!originalImage && !previewImage && (
-              <Avatar sx={{ width: "100px", height: "100px" }}>
+              <Avatar sx={{ width: '100px', height: '100px' }}>
                 {firstName.substring(0, 2)}
               </Avatar>
             )}
             {previewImage && (
               <Avatar
-                sx={{ width: "100px", height: "100px" }}
+                sx={{ width: '100px', height: '100px' }}
                 src={
                   originalImage || previewImage
                     ? previewImage
                       ? previewImage
-                      : "https://connect-easy-images.s3.us-west-2.amazonaws.com/" +
+                      : 'https://connect-easy-images.s3.us-west-2.amazonaws.com/' +
                         originalImage
                     : null
                 }
@@ -154,13 +153,13 @@ const ProfilePage = () => {
                   type="file"
                   accept="image/*"
                   onChange={(e) => imageSelectHandler(e)}
-                  style={{ display: "none" }}
+                  style={{ display: 'none' }}
                 />
               </Button>
             </Box>
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: 'flex' }}>
             <TextFieldWithLabel
               disabled={true}
               type="email"
@@ -171,9 +170,9 @@ const ProfilePage = () => {
           </Box>
           <Box
             sx={{
-              width: "500px",
-              display: "flex",
-              gap: "2rem",
+              width: '500px',
+              display: 'flex',
+              gap: '2rem',
             }}
           >
             <TextFieldWithLabel
@@ -190,7 +189,7 @@ const ProfilePage = () => {
             />
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: 'flex' }}>
             <TextFieldWithLabel
               multiline
               rows={8}
@@ -201,7 +200,7 @@ const ProfilePage = () => {
             />
           </Box>
 
-          <Box sx={{ display: "flex", gap: "2rem" }}>
+          <Box sx={{ display: 'flex', gap: '2rem' }}>
             <TextFieldWithLabel
               variant="standard"
               label="street"
@@ -222,7 +221,7 @@ const ProfilePage = () => {
             />
           </Box>
 
-          <Box sx={{ display: "flex", gap: "2rem" }}>
+          <Box sx={{ display: 'flex', gap: '2rem' }}>
             <TextFieldWithLabel
               variant="standard"
               label="country"
@@ -237,7 +236,7 @@ const ProfilePage = () => {
             />
           </Box>
 
-          <Box sx={{ display: "flex", gap: "2rem" }}>
+          <Box sx={{ display: 'flex', gap: '2rem' }}>
             <TextFieldWithLabel
               variant="standard"
               label="price"
@@ -267,10 +266,10 @@ const ProfilePage = () => {
 
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "row-reverse",
-              width: "100%",
-              gap: "2rem",
+              display: 'flex',
+              flexDirection: 'row-reverse',
+              width: '100%',
+              gap: '2rem',
             }}
           >
             <Button
